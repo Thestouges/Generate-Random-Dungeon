@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class GenerateDungeon : MonoBehaviour
 {
-    struct Room
-    {
-        bool up;
-        bool down;
-        bool left;
-        bool right;
-    }
-
     List<List<bool>> dungeon;
 
     public int GridSize = 1;
@@ -24,6 +16,8 @@ public class GenerateDungeon : MonoBehaviour
 
     public GameObject WallObject;
     public float WallWidth = 0.1f;
+
+    public GameObject CameraObject;
 
     int roomCounter = 1;
     // Start is called before the first frame update
@@ -123,6 +117,8 @@ public class GenerateDungeon : MonoBehaviour
                 }
             }
         }
+
+        CameraObject.transform.position = new Vector3(startx* RoomSize, starty* RoomSize, -10);
     }
 
     void generateCorridor(float posx, float posy, float rotation)

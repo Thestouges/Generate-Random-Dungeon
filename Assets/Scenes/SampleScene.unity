@@ -148,11 +148,12 @@ MonoBehaviour:
     type: 3}
   CorridorObject: {fileID: 342226856785469763, guid: da703bb7175053c478dd495f92f0eddf,
     type: 3}
-  CorridorLength: 3
-  CorridorWidth: 1
+  CorridorLength: 4
+  CorridorWidth: 2
   WallObject: {fileID: 3884877514860625628, guid: da6acc116280ee74e84409f20f08776b,
     type: 3}
-  WallWidth: 0.1
+  WallWidth: 0.5
+  CameraObject: {fileID: 519420028}
 --- !u!4 &459439214
 Transform:
   m_ObjectHideFlags: 0
@@ -248,6 +249,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &889357990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 889357992}
+  - component: {fileID: 889357991}
+  m_Layer: 0
+  m_Name: MouseClickEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &889357991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889357990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaffa7c86fe527b49a2bb75af0983e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &889357992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889357990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.86267, y: 13.075763, z: 0.061258495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033217104
 GameObject:
