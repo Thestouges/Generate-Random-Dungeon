@@ -150,6 +150,9 @@ MonoBehaviour:
     type: 3}
   CorridorLength: 3
   CorridorWidth: 1
+  WallObject: {fileID: 3884877514860625628, guid: da6acc116280ee74e84409f20f08776b,
+    type: 3}
+  WallWidth: 0.1
 --- !u!4 &459439214
 Transform:
   m_ObjectHideFlags: 0

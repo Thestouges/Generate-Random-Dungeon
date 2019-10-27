@@ -131,6 +131,7 @@ public class GenerateDungeon : MonoBehaviour
         corridor.transform.position = new Vector3(posx, posy, 0);
         corridor.transform.localScale = new Vector3(CorridorLength, CorridorWidth, 1);
         corridor.transform.eulerAngles = new Vector3(0, 0, rotation);
+        createCorridorWall(posx,posy,rotation);
     }
 
     void generateRoom(int posx, int posy)
@@ -195,6 +196,34 @@ public class GenerateDungeon : MonoBehaviour
         room.transform.localScale = new Vector3(RoomSize, RoomSize, 1);
     }
 
+    void createCorridorWall(float corridorposx, float corridorposy, float rotation)
+    {
+        if(rotation != 0)
+        {
+            GameObject wall1 = Instantiate(WallObject);
+            wall1.transform.position = new Vector3(corridorposx + CorridorWidth / 2, corridorposy, -0.5f);
+            wall1.transform.localScale = new Vector3(CorridorLength, WallWidth, 1);
+            wall1.transform.eulerAngles = new Vector3(0, 0, rotation);
+
+            GameObject wall2 = Instantiate(WallObject);
+            wall2.transform.position = new Vector3(corridorposx - CorridorWidth / 2, corridorposy, -0.5f);
+            wall2.transform.localScale = new Vector3(CorridorLength, WallWidth, 1);
+            wall2.transform.eulerAngles = new Vector3(0, 0, rotation);
+        }
+        else
+        {
+            GameObject wall1 = Instantiate(WallObject);
+            wall1.transform.position = new Vector3(corridorposx, corridorposy + CorridorWidth / 2, -0.5f);
+            wall1.transform.localScale = new Vector3(CorridorLength, WallWidth, 1);
+            wall1.transform.eulerAngles = new Vector3(0, 0, rotation);
+
+            GameObject wall2 = Instantiate(WallObject);
+            wall2.transform.position = new Vector3(corridorposx, corridorposy - CorridorWidth / 2, -0.5f);
+            wall2.transform.localScale = new Vector3(CorridorLength, WallWidth, 1);
+            wall2.transform.eulerAngles = new Vector3(0, 0, rotation);
+        }
+    }
+
     void createFloorWalls(int i, int j, float floorposx, float floorposy)
     {
         //west wall
@@ -212,7 +241,13 @@ public class GenerateDungeon : MonoBehaviour
             }
             else
             {
+                GameObject wall1 = Instantiate(WallObject);
+                wall1.transform.position = new Vector3(floorposx + RoomSize / 2, floorposy + (RoomSize+CorridorWidth) / 4, -0.5f);
+                wall1.transform.localScale = new Vector3(WallWidth, (RoomSize-CorridorWidth) / 2, 1);
 
+                GameObject wall2 = Instantiate(WallObject);
+                wall2.transform.position = new Vector3(floorposx + RoomSize / 2, floorposy - (RoomSize + CorridorWidth) / 4, -0.5f);
+                wall2.transform.localScale = new Vector3(WallWidth, (RoomSize - CorridorWidth) / 2, 1);
             }
         }
         catch
@@ -241,7 +276,13 @@ public class GenerateDungeon : MonoBehaviour
             }
             else
             {
+                GameObject wall1 = Instantiate(WallObject);
+                wall1.transform.position = new Vector3(floorposx + (RoomSize + CorridorWidth) / 4, floorposy + RoomSize / 2, -0.5f);
+                wall1.transform.localScale = new Vector3((RoomSize - CorridorWidth) / 2, WallWidth, 1);
 
+                GameObject wall2 = Instantiate(WallObject);
+                wall2.transform.position = new Vector3(floorposx - (RoomSize + CorridorWidth) / 4, floorposy + RoomSize / 2, -0.5f);
+                wall2.transform.localScale = new Vector3((RoomSize - CorridorWidth) / 2, WallWidth, 1);
             }
         }
         catch
@@ -270,7 +311,13 @@ public class GenerateDungeon : MonoBehaviour
             }
             else
             {
+                GameObject wall1 = Instantiate(WallObject);
+                wall1.transform.position = new Vector3(floorposx - RoomSize / 2, floorposy + (RoomSize + CorridorWidth) / 4, -0.5f);
+                wall1.transform.localScale = new Vector3(WallWidth, (RoomSize - CorridorWidth) / 2, 1);
 
+                GameObject wall2 = Instantiate(WallObject);
+                wall2.transform.position = new Vector3(floorposx - RoomSize / 2, floorposy - (RoomSize + CorridorWidth) / 4, -0.5f);
+                wall2.transform.localScale = new Vector3(WallWidth, (RoomSize - CorridorWidth) / 2, 1);
             }
         }
         catch
@@ -287,7 +334,7 @@ public class GenerateDungeon : MonoBehaviour
         //south wall
         try
         {
-            if (dungeon[i][j + 1] == false)
+            if (dungeon[i][j - 1] == false)
             {
                 GameObject wall1 = Instantiate(WallObject);
                 wall1.transform.position = new Vector3(floorposx + RoomSize / 4, floorposy - RoomSize / 2, -0.5f);
@@ -299,7 +346,13 @@ public class GenerateDungeon : MonoBehaviour
             }
             else
             {
+                GameObject wall1 = Instantiate(WallObject);
+                wall1.transform.position = new Vector3(floorposx + (RoomSize + CorridorWidth) / 4, floorposy - RoomSize / 2, -0.5f);
+                wall1.transform.localScale = new Vector3((RoomSize - CorridorWidth) / 2, WallWidth, 1);
 
+                GameObject wall2 = Instantiate(WallObject);
+                wall2.transform.position = new Vector3(floorposx - (RoomSize + CorridorWidth) / 4, floorposy - RoomSize / 2, -0.5f);
+                wall2.transform.localScale = new Vector3((RoomSize - CorridorWidth) / 2, WallWidth, 1);
             }
         }
         catch
